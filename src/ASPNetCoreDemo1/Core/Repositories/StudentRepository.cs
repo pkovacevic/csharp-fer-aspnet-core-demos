@@ -10,7 +10,7 @@ namespace ASPNetCoreDemo1.Core.Repositories
 
         public Student Add(Student s)
         {
-            using (var db = new StudentDatabase())
+            using (var db = new StudentDbContext())
             {
                 db.Students.Add(s);
                 db.SaveChanges();
@@ -20,7 +20,7 @@ namespace ASPNetCoreDemo1.Core.Repositories
 
         public List<Student> GetAll()
         {
-            using (var db = new StudentDatabase())
+            using (var db = new StudentDbContext())
             {
                 return db.Students.ToList();
             }
@@ -28,7 +28,7 @@ namespace ASPNetCoreDemo1.Core.Repositories
 
         public Student Get(string jmbag)
         {
-            using (var db = new StudentDatabase())
+            using (var db = new StudentDbContext())
             {
                 return db.Students.Where(s => s.Jmbag == jmbag).FirstOrDefault();
             }
